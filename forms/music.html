@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Estilo -->
+  <style>
+    .centrarmusic {
+      text-align: center;
+    }
+    area {
+      cursor: grab;
+    }
+  </style>
+
+  <!-- Componentes -->
+  <body>
+    <div class="centrarmusic">
+      <img
+        src="music/nada.png"
+        alt="mplayer"
+        id="mplayer"
+        usemap="#mplayermap"
+        width="525"
+        height="892"
+      />
+
+      <map name="mplayermap">
+        <area shape="rect" coords="168,663,213,714" alt="play" id="play" />
+        <area shape="rect" coords="215,663,260,714" alt="rev" id="rev" />
+        <area shape="rect" coords="262,663,308,714" alt="ff" id="ff" />
+        <area shape="rect" coords="309,663,354,714" alt="stop" id="stop" />
+      </map>
+    </div>
+  </body>
+
+  <script>
+    var btnplay = document.getElementById("play");
+    var btnrev = document.getElementById("rev");
+    var btnff = document.getElementById("ff");
+    var btnstop = document.getElementById("stop");
+    var teclaaudio = new Audio("music/tecla.mp3");
+
+    var musictrack = 1;
+
+    var audio1 = new Audio("music/1.mp3");
+    var audio2 = new Audio("music/2.mp3");
+    var audio3 = new Audio("music/3.mp3");
+    var audio4 = new Audio("music/4.mp3");
+
+    btnplay.onclick = function () {
+      document.getElementById("mplayer").src = "music/play.gif";
+
+      var nombreaudio;
+      if (musictrack == 1) {
+        audio1.play();
+        audio2.pause();
+        audio3.pause();
+        audio4.pause();
+
+        nombreaudio = "Audio 1";
+      }
+      if (musictrack == 2) {
+        audio1.pause();
+        audio2.play();
+        audio3.pause();
+        audio4.pause();
+
+        nombreaudio = "Audio 2";
+      }
+      if (musictrack == 3) {
+        audio1.pause();
+        audio2.pause();
+        audio3.play();
+        audio4.pause();
+
+        nombreaudio = "Audio 3";
+      }
+      if (musictrack == 4) {
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+        audio4.play();
+        nombreaudio = "Audio 4";
+      }
+
+      document.getElementById("snackbar").innerHTML =
+        "Playing... " + nombreaudio;
+
+      MostrarSuceso();
+    };
+
+    btnrev.onclick = function () {
+      if (musictrack == 1) {
+        musictrack = 1;
+        document.getElementById("snackbar").innerHTML = "Primer audio";
+      } else {
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+        audio4.pause();
+
+        document.getElementById("snackbar").innerHTML = "Audio anterior";
+        musictrack = musictrack - 1;
+      }
+
+      document.getElementById("mplayer").src = "music/rev.gif";
+
+      teclaaudio.play();
+
+      MostrarSuceso();
+    };
+
+    btnff.onclick = function () {
+      if (musictrack == 4) {
+        musictrack = 4;
+        document.getElementById("snackbar").innerHTML = "Último audio";
+      } else {
+        audio1.pause();
+        audio2.pause();
+        audio3.pause();
+        audio4.pause();
+
+        document.getElementById("snackbar").innerHTML = "Audio siguiente";
+        musictrack = musictrack + 1;
+      }
+
+      document.getElementById("mplayer").src = "music/ff.gif";
+      teclaaudio.play();
+
+      MostrarSuceso();
+    };
+
+    btnstop.onclick = function () {
+      document.getElementById("mplayer").src = "music/stop.gif";
+      audio1.pause();
+      audio2.pause();
+      audio3.pause();
+      audio4.pause();
+      teclaaudio.play();
+      document.getElementById("snackbar").innerHTML = "Stop!";
+      MostrarSuceso();
+    };
+  </script>
+
+  <script src="js/image-map.js"></script>
+
+  <script>
+    /* JavaScript del image-map para reconocer mejor las areas clicleables 
+  ImageMap('img[usemap]', 0);
+
+  function selectRegion (ctx, region) {
+      var selector = 'img[usemap=\'#' + ctx.parentElement.name + '\']';
+      document.querySelector(selector).setAttribute('src', 'image-map-' + region + '.png');
+  }*/
+  </script>
+</html>

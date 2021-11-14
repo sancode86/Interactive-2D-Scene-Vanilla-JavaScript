@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <link rel="icon" href="favicon.ico" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/loader.css" />
+  <!-- Javascript -->
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/random.js"></script>
+  <script src="js/time.js"></script>
+  <script src="js/zoom.js"></script>
+  <script src="js/ProcesosIniciales.js"></script>
+
+  <!-- Javascript Idioma -->
+  <!-- Por hacer! -->
+
+  <!-- Javascript de las acciones por HORA -->
+  <script src="js/horas/0.js"></script>
+  <script src="js/horas/1.js"></script>
+  <script src="js/horas/2.js"></script>
+  <script src="js/horas/3.js"></script>
+  <script src="js/horas/4.js"></script>
+  <script src="js/horas/5.js"></script>
+  <script src="js/horas/6.js"></script>
+  <script src="js/horas/7.js"></script>
+  <script src="js/horas/8.js"></script>
+  <script src="js/horas/9.js"></script>
+  <script src="js/horas/10.js"></script>
+  <script src="js/horas/11.js"></script>
+  <script src="js/horas/12.js"></script>
+  <script src="js/horas/13.js"></script>
+  <script src="js/horas/14.js"></script>
+  <script src="js/horas/15.js"></script>
+  <script src="js/horas/16.js"></script>
+  <script src="js/horas/17.js"></script>
+  <script src="js/horas/18.js"></script>
+  <script src="js/horas/19.js"></script>
+  <script src="js/horas/20.js"></script>
+  <script src="js/horas/21.js"></script>
+  <script src="js/horas/22.js"></script>
+  <script src="js/horas/23.js"></script>
+
+  <!-- Toast/Mensajes -->
+  <script src="js/mensajes.js"></script>
+
+  <!-- Actualizar Reloj -->
+  <script src="js/reloj.js"></script>
+
+  <!-- Actualizar Calendario -->
+  <script src="js/calendario.js"></script>
+
+  <!-- Actualizar Reloj TICK -->
+  <script src="js/relojtick.js"></script>
+
+  <!-- Paso del tren/frecuencia -->
+  <script src="js/frecuenciaTren.js"></script>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/menu.css" />
+  <link rel="stylesheet" href="css/mensajes.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+
+  <body onload="ProcesosIniciales();">
+    <div class="centrar">
+      <!-- Barra navegar -->
+      <div class="navbar">
+        <!-- Tiempo -->
+        <div>Horario Actual <span id="MostrarTiempo">Cargando...</span></div>
+      </div>
+
+      <!-- Testing menu interactivo -->
+      <div id="menu" style="display: none">
+        <div id="menuheader">Menu Secreto</div>
+        <p>
+          <button
+            onclick="document.getElementById('tren').src='img/calle/tren.gif'"
+          >
+            Test Tren
+          </button>
+        </p>
+        <p>
+          <button
+            onclick="document.getElementById('layercuarto').src='img/test.png'"
+          >
+            Test b
+          </button>
+        </p>
+        <p>
+          <button
+            onclick="document.getElementById('layercuarto').src='img/test2.png'"
+          >
+            Test c
+          </button>
+        </p>
+        <p><button onclick="MostrarSuceso()">Ultimo suceso</button></p>
+        <p><button id="abrirmodalsecreto">Open Modal</button></p>
+        <p><button id="abrirmusicplayer">Reproductor de Musica</button></p>
+      </div>
+    </div>
+    <!-- FIN Testing menu interactivo -->
+
+    <!-- El Modal -->
+    <div id="secreto" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close2">&times;</span>
+        <div id="contenedorModalsecreto"></div>
+      </div>
+    </div>
+
+    <!-- El Modal de contrasena -->
+    <div id="pidecontrasena" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content2">
+        <span class="close">&times;</span>
+        <div id="contenedorModalcontrasena"></div>
+      </div>
+    </div>
+
+    <div id="modalmusica" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content3">
+        <span class="close3">&times;</span>
+        <div id="contenedormodalmusica"></div>
+      </div>
+    </div>
+
+    <!-- Seccion Zoom y Pantalla Principal-->
+    <div id="container">
+      <div id="slide">
+        <div class="stack stack-sidegrid">
+          <!-- <img src="img/habitacion/calle.png" alt="layer" id="layer1">-->
+          <!-- <img src="img/habitacion/accionescalle.png" alt="layer" id="layer2">-->
+          <img
+            src="img/habitacion/calle.png"
+            alt="calle"
+            id="calle"
+            usemap="#workmap"
+            width="1920"
+            height="1080"
+          />
+          <img
+            src="img/calle/trenNO.png"
+            alt="tren"
+            id="tren"
+            usemap="#workmap"
+            width="1920"
+            height="1080"
+          />
+          <img
+            src="img/habitacion/base.png"
+            alt="base"
+            id="base"
+            usemap="#workmap"
+            width="1920"
+            height="1080"
+          />
+
+          <img
+            src="img/habitacion/reloj/hora/0.png"
+            alt="hora"
+            id="hora"
+            usemap="#workmap"
+            width="1920"
+            height="1080"
+          />
+          <img
+            src="img/habitacion/reloj/minuto/0.png"
+            alt="minuto"
+            id="minuto"
+            usemap="#workmap"
+            width="1920"
+            height="1080"
+          />
+          <img
+            src="img/habitacion/calendario/dia/1.png"
+            alt="dia"
+            id="dia"
+            usemap="#workmap"
+            width="1920"
+            height="1080"
+          />
+          <img
+            src="img/habitacion/calendario/mes/ene.png"
+            alt="mes"
+            id="mes"
+            usemap="#workmap"
+            width="1920"
+            height="1080"
+          />
+
+          <!-- RELOJ TICK-->
+
+          <img
+            src="img/habitacion/reloj/relojtickOFF.png"
+            alt="relojtick"
+            id="relojtick"
+            usemap="#workmap"
+            width="1920"
+            height="1080"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- FIN Seccion Zoom -->
+
+    <!-- Mensajes centro inferior -->
+    <div id="snackbar">...</div>
+
+    <map name="workmap">
+      <area
+        shape="rect"
+        coords="1189,759,1418,993"
+        alt="teclado"
+        id="pidecontrasenamodal"
+      />
+    </map>
+  </body>
+
+  <!-- Script del Menu flotante -->
+  <script src="js/menu.js"></script>
+  <!-- Script del modal -->
+  <script src="js/modal.js"></script>
+  <!-- Script del modal -->
+  <script src="js/modalcontrasena.js"></script>
+  <!-- Script mostrar menu -->
+  <script src="js/mostrarmenu.js"></script>
+  <!-- Script mostrar menu MUSICA-->
+  <script src="js/modalmusica.js"></script>
+
+  <!-- Script para llamar codigo en otro archivo del modal -->
+  <script>
+    $(function () {
+      $("#contenedorModalsecreto").load("forms/cards.html");
+    });
+    $(function () {
+      $("#contenedorModalcontrasena").load("forms/modalcontra.html");
+    });
+    $(function () {
+      $("#contenedormodalmusica").load("forms/music.html");
+    });
+  </script>
+
+  <script src="js/image-map.js"></script>
+
+  <script>
+    /* JavaScript del image-map para reconocer mejor las areas clicleables */
+    ImageMap("img[usemap]", 0);
+
+    function selectRegion(ctx, region) {
+      var selector = "img[usemap='#" + ctx.parentElement.name + "']";
+      document
+        .querySelector(selector)
+        .setAttribute("src", "image-map-" + region + ".png");
+    }
+  </script>
+</html>

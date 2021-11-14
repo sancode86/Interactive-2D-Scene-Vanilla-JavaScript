@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Estilo -->
+<style>
+
+.centrarcontra{
+text-align: center;
+align-content: center;
+width: 55%;
+margin: auto;
+}
+
+.compocontra{
+padding: 11px;
+letter-spacing: 22px;
+text-align: center;
+  }
+</style>
+<!-- Componentes -->
+<body>
+
+<div class="centrarcontra">
+    <p>Ingresar contraseña</p>
+
+    <form action="#" onsubmit="validarpassword();return false">
+      <input type="password" id="password" size="12" class="compocontra" maxlength="4" required size="4"> 
+        </br>
+        <p><input type="submit" value="Ok"> </p> 
+    </form>
+    
+</div>
+</body>
+<script>
+    function validarpassword() {
+      var varpassword = document.getElementById("password").value;    
+     //No es una demostración de seguridad :) 
+      if (varpassword == 1234) {       
+        mostrarMenu();
+        var cerrarventanacontrasena = document.getElementById("pidecontrasena");
+        cerrarventanacontrasena.style.display = "none";
+        return false;        
+      } else {       
+        errorpass();
+        return false;
+      } 
+    }
+
+    function errorpass(){
+    document.getElementById("snackbar").innerHTML = "¡contrasena incorrecta!";
+    MostrarSuceso();}
+</script>
+</html>

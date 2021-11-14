@@ -1,0 +1,57 @@
+  .centrar {
+    margin: auto;
+    text-align: center;
+    
+  }
+
+  #container{
+   overflow:hidden;
+  }
+  #slide{
+    width:100%;
+    height:100%;
+    transition: transform .3s;
+  }
+  img{
+   width:auto;
+    height:auto; 
+    max-width:100%;
+  }
+
+
+
+
+
+  .stack {
+      
+    padding: 0;
+    position: relative;
+    max-width: 100%;
+  }
+  
+  .stack img {
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s;
+  }
+  
+  .stack img:last-child {
+    position: relative;
+  }
+
+body{
+
+  margin: 0px;
+  padding: 0px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+}
+
+area{
+
+  cursor: grab;
+  outline-color: red;
+}
